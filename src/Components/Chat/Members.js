@@ -90,7 +90,7 @@ export const Members = ( { socket , group } ) => {
             socket.off("cnvo_user_offline");
             socket.off("cnvo_user_left")
         }
-    }, [ group ] )
+    }, [ group, socket ] )
 
 
     const copy=(e)=>{
@@ -135,6 +135,7 @@ export const Members = ( { socket , group } ) => {
                                         <p>{member.r_user_name}</p>
                                     </div>
                                 )
+                            return null
                         })
                     }
                     </div>
@@ -150,7 +151,8 @@ export const Members = ( { socket , group } ) => {
                                         <span className={styles.offlineTag}></span>
                                         <p>{member.r_user_name}</p>
                                     </div>
-                            )
+                                )
+                                return null
                         })
                     }
                     </div>

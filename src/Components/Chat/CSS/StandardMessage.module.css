@@ -52,6 +52,15 @@
     padding: 0;
     margin: 0px 5px 0px 5px;
     cursor: pointer;
+    
+}
+
+.messageFooter button .myReply::before{
+    content: "⮑";
+}
+
+.messageFooter button .othersReply::before{
+    content: "⮐";
 }
 
 
@@ -63,4 +72,14 @@
 
 .myMessage .messageFooter p{
     text-align: end;
+}
+
+@media screen and (max-width: 768px) {
+    .messageFooter button .myReply::before{
+        content: "➥";
+    }
+    
+    .messageFooter button .othersReply::before{
+        content: "⮨";
+    }
 }

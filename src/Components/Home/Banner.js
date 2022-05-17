@@ -1,10 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"
 
 import styles from "./Home.module.css";
 
+
 export const Banner = ({ history }) => {
+  const navigate = useNavigate()
+
   const goToChat = (e) => {
-    history.push("/chat");
+    navigate("/chat");
   };
   return (
     <div className={styles.bannerContainer}>
