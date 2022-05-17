@@ -1,0 +1,82 @@
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .formContainer {
+    background-color: black;
+    width: 40%;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid grey;
+}
+.container .formContainer form {
+    width: 100%;
+    padding: 20px;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.inputContainer * {
+    margin: 10px;
+}
+
+.container .formContainer form input[type="text"] {
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    border-style: none;
+    outline: none;
+    background-color: rgb(29, 28, 28);
+    color: white;
+    margin-right: 5%;
+}
+
+.container .formContainer form textarea {
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    border-style: none;
+    outline: none;
+    background-color: rgb(29, 28, 28);
+    color: white;
+    margin-right: 5%;
+}
+
+.container .formContainer form input[type="submit"] {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    border-style: none;
+    outline: none;
+    background-color: rgb(56, 70, 197);
+    color: white;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .container .formContainer {
+      width: 80%;
+    }
+}

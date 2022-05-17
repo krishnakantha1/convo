@@ -1,0 +1,122 @@
+.container {
+  min-width: 250px;
+  max-width: 250px;
+  height: 90vh;
+  background-color: black;
+  border-top: 1px solid grey;
+  
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+}
+
+header h2{
+  margin: 15px;
+}
+
+.members{
+  height:100%;
+  overflow-y: scroll;
+}
+
+.status {
+  padding: 10px;
+}
+
+:is(.onlineContainer, .offlineContainer) {
+  position: relative;
+  padding: 0 10px 0 20px;
+}
+
+.offlineContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.onlineTag {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+  background-color: green;
+}
+.offlineTag {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+  background-color: yellow;
+}
+
+.crown {
+  height: 13px;
+  width: 13px;
+  margin: 0 0 0 10px;
+  clip-path: polygon(50% 0%, 75% 45%, 100% 0, 100% 100%, 0 100%, 0 0, 25% 45%);
+  background-color: gold;
+}
+
+.copy{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  padding:10px;
+}
+.copy button{
+  background-color: blueviolet;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+
+.leave{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+  gap:15px;
+  padding:10px;
+}
+.leave span{
+  color:red;
+  font-weight: 900;
+}
+.leave p{
+  color:red;
+}
+.leave:hover{
+  background-color: red;
+}
+.leave:hover :is(span,p){
+  color:black;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: min(250px, 75vw);
+    z-index: -1;
+    position: absolute !important;
+    top: 0;
+    right: 0;
+  }
+}

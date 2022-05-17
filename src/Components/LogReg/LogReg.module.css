@@ -1,0 +1,113 @@
+.container {
+  width: 100%;
+  height: 90vh;
+  background-color: black;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.innerContainer .displayOff {
+  display: none;
+}
+
+.innerContainer {
+  position: relative;
+  width: 50%;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.innerContainer form {
+  height: 85%;
+  width: 65%;
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.innerContainer form * {
+  color: black;
+}
+.innerContainer form h1 {
+  text-transform: uppercase;
+}
+.innerContainer form input {
+  width: 60%;
+  padding: 10px 15px;
+}
+.innerContainer form p {
+  font-size: 0.5 rem;
+  padding: 0px 20px;
+  text-align: center;
+}
+.innerContainer form input[type="submit"],
+.innerContainer form button {
+  width: auto;
+  padding: 10px 15px;
+  border-style: none;
+  color: floralwhite;
+  background-color: #64a19d;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.innerContainer form .danger {
+  color: red;
+  font-family: sans-serif;
+}
+
+.innerContainer form .loader {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+}
+
+.arc {
+  width: 50%;
+  height: 90vh;
+  clip-path: ellipse(100% 100% at 0% 50%);
+  background-image: url("./img/backdrop.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 10vh;
+  }
+
+  .innerContainer {
+    width: 100%;
+  }
+  .innerContainer form {
+    width: 85%;
+    height: 85%;
+  }
+  .innerContainer form input {
+    width: 80%;
+  }
+
+  .arc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90vh;
+    clip-path: ellipse(80% 100% at 0% 50%);
+  }
+  .arc::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}

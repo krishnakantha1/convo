@@ -1,0 +1,96 @@
+.container{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 5px;
+    position:relative;
+    background-color: rgb(95, 95, 95);
+}
+
+.toReplyMessageContainer{
+    display: flex;
+
+    width:100%;
+    background-color: rgb(95, 95, 95);
+    position: relative;
+    padding: 3px 10px 3px 20px;
+}
+
+.toReplyMessageBubble{
+    width: 100%;
+    font-size: 13px;
+    
+    background-color: rgb(52, 52, 52);
+    border-radius: 5px;
+    border-left: 5px solid teal;
+    padding: 2px 0px 2px 5px;
+}
+
+.toReplyMessageBubble p {
+    overflow-wrap: break-word;
+}
+
+.toReplyMessageContainer button {
+    margin: 0px 10px;
+    padding: 0px 5px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color:white;
+}
+
+.form{
+    
+    width:100%;
+    display: flex;
+}
+
+.textFieldWrapper{
+    width: 100%;
+    margin: 0px 5px 5px 5px;
+    position: relative;
+}
+
+.textArea{
+    height: 50px;
+    width: 100%;
+    font-size: 1rem;
+    padding: 5px 10px;
+    
+    border-radius: 5px;
+    border-style: none;
+    outline: none;
+    background-color: black;
+    color: white;
+}
+
+.textLength{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding:1px 5px;
+    font-size: 10px;
+}
+
+.submit{
+    padding: 5px 10px;
+    margin: 0px 5px 5px 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(49, 42, 42);
+    color: white;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+    .container{
+        padding-bottom: 10px;
+    }
+
+    .textArea {
+        width: 100%
+    }
+}

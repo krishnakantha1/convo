@@ -1,0 +1,74 @@
+.chatControler {
+    height: 90vh;
+    min-width: 70px;
+    max-width: 70px;
+    background-color: black;
+    overflow-y: auto;
+    border-top: 1px solid grey;
+}
+
+.groupBadge {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
+}
+
+.badge {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    border: 2px solid gray;
+    transition: border-radius 0.4s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.addBadge {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    border: 3px solid gray;
+    transition: border-radius 0.4s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: dashed;
+    cursor: pointer;
+}
+
+.badge:hover {
+    border-radius: 35%;
+}
+
+:is(.badge, .addBadge) .badgeText {
+    font-weight: bold;
+    font-size: 250%;
+    text-transform: uppercase;
+    text-justify: inter-word;
+  
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+    .chatControler {
+      width: min(70px, 25vw);
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+}

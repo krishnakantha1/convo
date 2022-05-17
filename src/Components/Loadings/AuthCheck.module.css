@@ -1,0 +1,43 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container h1 {
+  display: inline-block;
+  margin: 20px 5px;
+  font-size: min(9vw, 50px);
+  opacity: 0;
+  animation: visibility forwards 1s ease-in-out;
+  animation-delay: calc(var(--i) * 0.05s);
+}
+
+@keyframes visibility {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container p {
+  font-size: min(5vw, 25px);
+  opacity: 0;
+  animation: showup 0.5s forwards ease-in-out;
+  animation-delay: 1s;
+}
+
+@keyframes showup {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

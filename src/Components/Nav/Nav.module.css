@@ -1,0 +1,167 @@
+.nav {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+  background-color: black;
+}
+
+.navFixed {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 5px 0px 4px rgb(0, 0, 0);
+}
+
+.logo h2 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.navLinks {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.nav li {
+  cursor: pointer;
+}
+
+.burger {
+  display: none;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  margin: 5px;
+  background-color: grey;
+  transition: transform 0.3s ease;
+}
+.join a {
+  border: 2px solid grey;
+  padding: 0.2rem 0.75rem;
+  border-radius: 10px;
+}
+.join:hover a {
+  background-color: grey;
+  color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .burger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .navLinks {
+    z-index: 2;
+    position: fixed;
+    top: 10vh;
+    bottom: 0;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: white;
+
+    clip-path: circle(0% at 90% -10%);
+    transition: clip-path 1s ease-in-out;
+  }
+
+  .nav {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .navActive {
+    clip-path: circle(150% at 0% 0%);
+  }
+
+  .toggle {
+    transform: rotate(360deg);
+    transition: transform 1s ease-in-out;
+  }
+
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .toggle .line2 {
+    opacity: 0;
+  }
+
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+  .join a {
+    border: none;
+    padding: none;
+  }
+  .join:hover a {
+    background-color: transparent;
+    color: grey;
+  }
+}
+
+/* Prompt for log out */
+.promptBackground {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.prompt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+  background-color: gray;
+  height: 30vh;
+  width: 20%;
+  animation: showPrompt 0.3s ease-in-out forwards;
+}
+
+@keyframes showPrompt {
+  0% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.prompt p {
+  color: black;
+  margin: 0px 10px;
+  text-align: center;
+}
+
+.prompt button {
+  border-style: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}

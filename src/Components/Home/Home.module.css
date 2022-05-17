@@ -1,0 +1,141 @@
+.container {
+  width: 100%;
+}
+/* Banner */
+.bannerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 90vh;
+  background-color: black;
+  color: white;
+}
+.appName {
+  font-size: 5vw;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tag {
+  font-size: 2rem;
+  position: relative;
+  padding: 0.5rem 0;
+  cursor: pointer;
+}
+.tag::after {
+  content: "";
+  height: 5%;
+  width: 20%;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.goToChat {
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin: 1rem 0;
+  background-color: green;
+  cursor: pointer;
+}
+.bannerSVG {
+  display: block;
+  width: 30vw;
+  height: auto;
+  position: relative;
+}
+
+#topChat {
+  opacity: 0;
+  animation: fadeIn 1s forwards cubic-bezier(0.96, 0.02, 0.58, 1);
+}
+
+#bottomChat {
+  opacity: 0;
+  animation: fadeIn 1s forwards cubic-bezier(0.96, 0.02, 0.58, 1);
+  animation-delay: 750ms;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-20px, 20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bannerContainer {
+    flex-direction: column;
+    flex-flow: column-reverse;
+    margin-top: 10vh;
+  }
+  .bannerSVG {
+    width: 55vw;
+    transform: translateX(-5%);
+  }
+  .appName {
+    font-size: 10vw;
+  }
+  .tag {
+    font-size: 1rem;
+  }
+}
+
+/* Feature */
+.featureContainer {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 3rem 2rem;
+}
+.featureContainer:nth-child(even) {
+  flex-flow: row-reverse;
+}
+
+.featureContainer img {
+  width: 20vw;
+  height: auto;
+}
+.featureContainer div {
+  width: 40%;
+  color: white;
+}
+
+.featureContainer div h2 {
+  position: relative;
+}
+
+.featureContainer div p span {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.featureContainer div p {
+  font-size: 1.25rem;
+}
+
+@media screen and (max-width: 768px) {
+  .featureContainer {
+    flex-direction: column;
+    padding-top: 1rem;
+  }
+  .featureContainer:nth-child(even) {
+    flex-flow: column;
+  }
+  .featureContainer div {
+    width: 90%;
+    margin: 1rem 0;
+  }
+  .featureContainer img {
+    width: 35vw;
+    height: auto;
+    margin: 2rem 0;
+  }
+}
