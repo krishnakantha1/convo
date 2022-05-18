@@ -76,7 +76,7 @@
 
 @media screen and (max-width: 768px) {
     .messageFooter button .myReply::before{
-        content: "➥";
+        content: "⮩";
     }
     
     .messageFooter button .othersReply::before{
