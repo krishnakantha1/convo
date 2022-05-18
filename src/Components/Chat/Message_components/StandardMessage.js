@@ -55,7 +55,6 @@ export const StandardMessage = ( { message, prev_message_from_same_user, setMess
                                 <button type="button" onClick={handleReplyIntent}><span className={styles.othersReply}></span></button>
                             </>
                         )
-
                     }
                 </div>
             </div>
