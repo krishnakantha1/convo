@@ -134,17 +134,7 @@ function NotLoggedIn() {
   );
 }
 
-function ChatLoader(){
-  return (
-    <div className={styles.ChatLoader}>
-      <div className={styles.blinker}>
-          <span style={{ "--i": "1" }} ></span>
-          <span style={{ "--i": "2" }}></span>
-          <span style={{ "--i": "3"}}></span>
-        </div>
-    </div>
-  )
-}
+
 
 function JoinOrCreateGroupPrompt(){
   const containerStyle = {

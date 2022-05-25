@@ -17,7 +17,7 @@ export const ChatArea = ({ displayedGroup,socket }) => {
   const [messageList, setMessageList] = useState([])
 
   //flag to indicate if new message is sent be me
-  const [myNewMessage, setMyNewMessage] = useState(false)
+  const [newMessage, setNewMessage] = useState(false)
 
   //flag indicating that previous chat are trying to be fetched
   const [fetchingPreviousChat, setFetchingPreviousChat] = useState(false)
@@ -44,11 +44,11 @@ export const ChatArea = ({ displayedGroup,socket }) => {
 
   //scroll to the end when user sends a new message
   useEffect(()=>{
-    if(myNewMessage===true){
+    if(newMessage===true){
       chatArea.current.scrollTop = chatArea.current.scrollHeight
-      setMyNewMessage(false)
+      setNewMessage(false)
     }
-  },[myNewMessage])
+  },[newMessage])
 
   //stay at the same scroll postion when user retrives previous chats for a group
   useEffect(()=>{
@@ -83,7 +83,7 @@ export const ChatArea = ({ displayedGroup,socket }) => {
 
       setGPCBToggle(true);
 
-      setMyNewMessage(true);
+      setNewMessage(true);
 
       setInitialChatLoading(false)
 
@@ -110,18 +110,18 @@ export const ChatArea = ({ displayedGroup,socket }) => {
         return
       }
 
-      if(new_message[0].r_user_id===id){
-        setMyNewMessage(true)
-      }
+      
+      setNewMessage(true)
+      
 
       setMessageList((messages) =>  [...messages, new_message[0]] )
     });
 
     //clean up of handlers
     return () => {
-      socket.off("cnvo_get_latest_messages");
-      socket.off("cnvo_previous_message_chunks_of_group");
-      socket.off("cnvo_latest_messages_of_group");
+      socket.off("cnvo_get_latest_messages")
+      socket.off("cnvo_previous_message_chunks_of_group")
+      socket.off("cnvo_latest_messages_of_group")
       socket.off("cnvo_new_created_message")
       
       //register the last seen for the user.

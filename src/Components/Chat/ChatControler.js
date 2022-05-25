@@ -2,6 +2,8 @@ import React,{useState} from "react";
 
 import styles from "./CSS/ChatControler.module.css";
 
+import { GroupBadge } from "./GroupBadge";
+
 
 export const ChatControler = ({ groups, setDisplayedGroup, setGroupToggle }) => {
 
@@ -21,12 +23,3 @@ export const ChatControler = ({ groups, setDisplayedGroup, setGroupToggle }) => 
   );
 };
 
-const GroupBadge = ({ group, setDisplayedGroup }) => {
-  return (
-    <div className={styles.groupBadge}>
-      <span className={styles.badge} onClick = {()=>setDisplayedGroup(group)}>
-        <p className={styles.badgeText}>{group.group_name[0]}</p>
-      </span>
-    </div>
-  );
-};

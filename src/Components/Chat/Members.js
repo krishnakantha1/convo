@@ -10,7 +10,11 @@ export const Members = ( { socket , group } ) => {
     const { LoginDetail : { id } } = useContext(LoginContext)
 
     //holds the list of members
-    const [members,setMembers] = useState({});
+    const [members,setMembers] = useState({})
+
+    const [promptGroupLeave,setPromptGroupLeave] = useState(false)
+
+    const [confirmText,setConfirmText] = useState("")
 
     //flag to indeicate waiting for responce from server
     const [fetchingMembers,setFetchingMembers] = useState(true)
@@ -22,6 +26,8 @@ export const Members = ( { socket , group } ) => {
     useEffect(() => {
         //setMembers({});
         setFetchingMembers(true)
+        setPromptGroupLeave(false)
+        setConfirmText("")
 
         mtoken.current = createToken();
 
@@ -103,6 +109,21 @@ export const Members = ( { socket , group } ) => {
         document.body.removeChild(temp);
     }
 
+    const promptLeaveGroup = (e)=>{
+        setPromptGroupLeave(true)
+    }
+
+    const closeLeavePrompt = (e)=>{
+        setConfirmText("")
+        setPromptGroupLeave(false)
+    }
+
+    const verifyForGroupLeave = (e)=>{
+        if(confirmText===group.group_name){
+            leaveGroup()
+        }
+    }
+
     const leaveGroup = (e)=>{
         socket.emit("cnvo_user_leave_group", { userID : id , groupID : group.group_id })
     }
@@ -116,59 +137,77 @@ export const Members = ( { socket , group } ) => {
                 <Loading/>
             </div>
             :
-            (<div className={styles.container}>
+            (<>
+                <div className={styles.container}>
 
-                <header>
-                    <h2>Members</h2>
-                </header>
+                    <header>
+                        <h2>Members</h2>
+                    </header>
 
-                <div className={styles.members}>
-                    { Object.keys(members).some((key) => members[key].r_status ) && <p className={styles.status}>Online</p>}
-                    <div className={styles.onlineContainer}>
-                    {
-                        Object.keys(members).map((key) =>{
-                            const member = members[key]
-                            if(members[key].r_status) 
-                                return (
-                                    <div key={key} className={styles.member}>
-                                        <span className={styles.onlineTag}></span>
-                                        <p>{member.r_user_name}</p>
-                                    </div>
-                                )
-                            return null
-                        })
-                    }
-                    </div>
-                    
-                    { Object.keys(members).some((key) => !members[key].r_status ) && <p className={styles.status}>Offline</p>}
-                    <div className={styles.offlineContainer}>
-                    {
-                        Object.keys(members).map((key) =>{
-                            const member = members[key]
-                            if(!members[key].r_status) 
-                                return (
-                                    <div key={key} className={styles.member}>
-                                        <span className={styles.offlineTag}></span>
-                                        <p>{member.r_user_name}</p>
-                                    </div>
-                                )
+                    <div className={styles.members}>
+                        { Object.keys(members).some((key) => members[key].r_status ) && <p className={styles.status}>Online</p>}
+                        <div className={styles.onlineContainer}>
+                        {
+                            Object.keys(members).map((key) =>{
+                                const member = members[key]
+                                if(members[key].r_status) 
+                                    return (
+                                        <div key={key} className={styles.member}>
+                                            <span className={styles.onlineTag}></span>
+                                            <p>{member.r_user_name}</p>
+                                        </div>
+                                    )
                                 return null
-                        })
-                    }
+                            })
+                        }
+                        </div>
+                        
+                        { Object.keys(members).some((key) => !members[key].r_status ) && <p className={styles.status}>Offline</p>}
+                        <div className={styles.offlineContainer}>
+                        {
+                            Object.keys(members).map((key) =>{
+                                const member = members[key]
+                                if(!members[key].r_status) 
+                                    return (
+                                        <div key={key} className={styles.member}>
+                                            <span className={styles.offlineTag}></span>
+                                            <p>{member.r_user_name}</p>
+                                        </div>
+                                    )
+                                    return null
+                            })
+                        }
+                        </div>
                     </div>
-                </div>
 
-                <footer>
-                    <div className={styles.copy}>
-                        <p>Copy Group Code</p> 
-                        <button type='button' title="copy group code" onClick={()=>copy()}>COPY</button>
-                    </div>
-                    <div className={styles.leave} onClick={leaveGroup}>
-                        <p>Leave Group</p>
-                        <span>⍈</span>
-                    </div>
-                </footer>
-            </div>
+                    <footer>
+                        <div className={styles.copy}>
+                            <p>Copy Group Code</p> 
+                            <button type='button' title="copy group code" onClick={()=>copy()}>COPY</button>
+                        </div>
+                        <div className={styles.leave} onClick={promptLeaveGroup}>
+                            <p>Leave Group</p>
+                            <span>⍈</span>
+                        </div>
+                    </footer>
+                </div>
+                {
+                    promptGroupLeave && (
+                        <div className={styles.GPLContainer} onClick={closeLeavePrompt}>
+                            <div className={styles.innerContainer} onClick={(e)=>{e.stopPropagation()}}>
+                                <p>
+                                    You are about to leave <span>{group.group_name}</span>. Please write the name in the
+                                    chat below and confirm to leave.
+                                </p>
+                                <input type="text" 
+                                    value={confirmText}
+                                    onChange={(e)=>{setConfirmText(e.target.value)}}></input>
+                                <button type="button" onClick={verifyForGroupLeave}>Confirm</button>
+                            </div>
+                        </div>
+                    )
+                }
+            </>
             )
             }
         </>

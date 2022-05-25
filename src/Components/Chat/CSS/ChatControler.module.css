@@ -11,22 +11,7 @@
     width: 100%;
     padding-top: 100%;
     position: relative;
-}
-
-.badge {
-    width: 70%;
-    height: 70%;
-    border-radius: 50%;
-    border: 2px solid gray;
-    transition: border-radius 0.4s ease;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
+    display: inline-block;
 }
 
 .addBadge {
@@ -46,11 +31,7 @@
     cursor: pointer;
 }
 
-.badge:hover {
-    border-radius: 35%;
-}
-
-:is(.badge, .addBadge) .badgeText {
+.addBadge .badgeText {
     font-weight: bold;
     font-size: 250%;
     text-transform: uppercase;

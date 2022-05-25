@@ -1,0 +1,94 @@
+.container{
+    display: block;
+    width: 70px;
+}
+
+
+.badgeContainer {
+    display: inline-block;
+    position: relative;
+    width: 70px;
+    padding-top: 100%;
+}
+
+.badgeContainer .badge {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    border: 2px solid gray;
+    transition: border-radius 0.4s ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.nameContainer{
+    display: none;
+    position: absolute;
+    height: 70px;
+    z-index: 100;
+    
+}
+
+.nameContainer .badgeName {
+    display: flex;
+    height: 100%;
+    align-items: center;  
+}
+
+.nameContainer .badgeName .toolTip{
+    background-color: rgb(180, 180, 180);
+    margin-left: 5px;
+    padding: 10px 10px 10px 20px;
+    border-radius: 5px;
+}
+
+.nameContainer .badgeName .toolTip::after{
+    content: "";
+    position: absolute;
+    left:0%;
+    top:50%;
+    transform:translate(-15px,-50%);
+    
+    border:10px solid rgb(180, 180, 180);
+    border-color: transparent rgb(180, 180, 180) transparent transparent;
+}
+
+.nameContainer .badgeName .toolTip p{
+    color: black;
+    font-weight: bold;
+}
+
+.container:hover .nameContainer{
+    display: inline-block;
+}
+
+
+.badge:hover {
+    border-radius: 35%;
+}
+
+.badge .badgeText {
+    font-weight: bold;
+    font-size: 250%;
+    text-transform: uppercase;
+    text-justify: inter-word;
+  
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@media screen and (max-width: 768px) {
+    .container:hover .nameContainer{
+        display: none;
+    }
+}
